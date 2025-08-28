@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package calculator;
+
+// 定义请求消息结构
+message AddRequest {
+  int32 a = 1;
+  int32 b = 2;
+}
+
+message MultiplyRequest {
+  int32 a = 1;
+  int32 b = 2;
+}
+
+// 定义响应消息结构
+message ResultResponse {
+  int32 result = 1;
+}
+
+// 定义计算器服务
+service CalculatorService {
+  // 加法方法（简单RPC）
+  rpc Add(AddRequest) returns (ResultResponse);
+  
+  // 乘法方法（简单RPC）
+  rpc Multiply(MultiplyRequest) returns (ResultResponse);
+}
